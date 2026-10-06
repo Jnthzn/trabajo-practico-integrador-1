@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import { sequelize } from "./src/config/db.js";
 import authRoutes from "./src/routes/auth.routes.js";
 
+import "./src/models/relaciones.js";
+
 dotenv.config();
 
 const app = express();
