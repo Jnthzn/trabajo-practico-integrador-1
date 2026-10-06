@@ -5,6 +5,7 @@ import { sequelize } from "./src/config/db.js";
 import "./src/models/relaciones.js";
 import authRoutes from "./src/routes/auth.routes.js";
 import profileRoutes from "./src/routes/profile.routes.js";
+import articleRoutes from "./src/routes/article.routes.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 // Rutas
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/articles", articleRoutes);
 
 const PORT = process.env.PORT || 3000;
 
