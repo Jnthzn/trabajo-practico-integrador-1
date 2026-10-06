@@ -2,9 +2,9 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import { sequelize } from "./src/config/db.js";
-import authRoutes from "./src/routes/auth.routes.js";
-
 import "./src/models/relaciones.js";
+import authRoutes from "./src/routes/auth.routes.js";
+import profileRoutes from "./src/routes/profile.routes.js";
 
 dotenv.config();
 
@@ -16,6 +16,7 @@ app.use(cookieParser());
 
 // Rutas
 app.use("/api/auth", authRoutes);
+app.use("/api/profile", profileRoutes);
 
 const PORT = process.env.PORT || 3000;
 
