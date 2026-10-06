@@ -1,16 +1,22 @@
 import { Router } from "express";
 import {
   getArticles,
+  getArticleById,
   createArticle,
+  updateArticle,
+  deleteArticle,
 } from "../controllers/article.controller.js";
 import { authMiddleware } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-// Ruta pública para ver todos los artículos
+// Rutas públicas
 router.get("/", getArticles);
+router.get("/:id", getArticleById);
 
-// Ruta protegida para crear un artículo
+// Rutas protegidas
 router.post("/", authMiddleware, createArticle);
+router.put("/:id", authMiddleware, updateArticle);
+router.delete("/:id", authMiddleware, deleteArticle);
 
 export default router;
