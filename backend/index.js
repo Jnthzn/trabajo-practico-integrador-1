@@ -6,6 +6,8 @@ import "./src/models/relaciones.js";
 import authRoutes from "./src/routes/auth.routes.js";
 import profileRoutes from "./src/routes/profile.routes.js";
 import articleRoutes from "./src/routes/article.routes.js";
+import categoryRoutes from "./src/routes/category.routes.js";
+import tagRoutes from "./src/routes/tag.routes.js";
 
 dotenv.config();
 
@@ -19,6 +21,8 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/articles", articleRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/tags", tagRoutes);
 
 const PORT = process.env.PORT || 3000;
 
