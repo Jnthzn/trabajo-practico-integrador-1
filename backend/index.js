@@ -1,6 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import cors from "cors";
 import { sequelize } from "./src/config/db.js";
 import "./src/models/relaciones.js";
 import authRoutes from "./src/routes/auth.routes.js";
@@ -13,6 +14,12 @@ dotenv.config();
 
 const app = express();
 
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }),
+);
 // Middlewares globales
 app.use(express.json());
 app.use(cookieParser());
